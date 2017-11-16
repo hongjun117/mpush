@@ -34,6 +34,7 @@ public class AESUtilsTest {
         String data = "似的士大夫士大夫士大夫首发式发生士大夫";
         System.out.println("原文：\n" + data);
         byte[] key = new byte[16];
+        //生成随机字节并将其置于用户提供的 byte 数组中。
         new Random().nextBytes(key);
         byte[] d1 = AESUtils.encrypt(data.getBytes(Constants.UTF_8), key,key);
         System.out.println("加密后：\n" + new String(d1));

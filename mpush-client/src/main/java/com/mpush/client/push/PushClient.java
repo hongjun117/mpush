@@ -46,8 +46,14 @@ public final class PushClient extends BaseService implements PushSender {
 
     private GatewayConnectionFactory gatewayConnectionFactory;
 
+    /**
+     * 获取返回结果
+     * @param ctx
+     * @return
+     */
     private FutureTask<PushResult> send0(PushContext ctx) {
         if (ctx.isBroadcast()) {
+            //全网广播在线用户
             return PushRequest.build(mPushClient, ctx).broadcast();
         } else {
             Set<RemoteRouter> remoteRouters = cachedRemoteRouterManager.lookupAll(ctx.getUserId());

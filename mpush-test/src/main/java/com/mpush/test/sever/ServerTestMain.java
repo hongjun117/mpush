@@ -42,7 +42,19 @@ public class ServerTestMain {
     }
 
     public static void start() {
+        /**
+         * 设置netty内存泄露级别
+         * DISABLED, SIMPLE, ADVANCED, PARANOID;
+         DISABLED（禁用）;: 不进行内存泄露的检测；
+         SIMPLE（操作简单）: 抽样检测，且只对部分方法调用进行记录，消耗较小，有泄漏时可能会延迟报告，默认级别；
+         ADVANCED（高级）: 抽样检测，记录对象最近几次的调用记录，有泄漏时可能会延迟报告；
+         PARANOID（偏执）: 每次创建一个对象时都进行泄露检测，且会记录对象最近的详细调用记录。是比较激进的内存泄露检测级别，消耗最大，建议只在测试时使用。
+         如果需要修改默认的检测级别，可以通过：1、调用静态方法setLevel进行修改；2、设置启动参数io.netty.leakDetectionLevel
+         */
         System.setProperty("io.netty.leakDetection.level", "PARANOID");
+        /**
+         * io.netty.noKeySetOptimization开关决定Netty对Selector的selectedKeys进行了优化是否启用该优化项
+         */
         System.setProperty("io.netty.noKeySetOptimization", "false");
         Main.main(null);
     }

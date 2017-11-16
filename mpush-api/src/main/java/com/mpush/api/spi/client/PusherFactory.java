@@ -26,7 +26,7 @@ import com.mpush.api.spi.SpiLoader;
 /**
  * Created by yxx on 2016/5/18.
  *
- * @author ohun@live.cn
+ * @author ohun@live.cnRT
  */
 public interface PusherFactory extends Factory<PushSender> {
     static PushSender create() {

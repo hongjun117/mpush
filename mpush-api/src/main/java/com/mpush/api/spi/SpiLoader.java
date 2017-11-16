@@ -50,6 +50,7 @@ public final class SpiLoader {
     }
 
     public static <T> T load0(Class<T>  clazz, String name) {
+        //根据class路径加载该文件
         ServiceLoader<T> factories = ServiceLoader.load(clazz);
         T t = filterByName(factories, name);
 

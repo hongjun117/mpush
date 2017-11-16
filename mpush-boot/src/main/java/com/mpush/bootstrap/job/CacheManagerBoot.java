@@ -27,6 +27,7 @@ import com.mpush.core.MPushServer;
  * Created by yxx on 2016/5/14.
  *
  * @author ohun@live.cn
+ * 初始化缓存模块
  */
 public final class CacheManagerBoot extends BootJob {
 

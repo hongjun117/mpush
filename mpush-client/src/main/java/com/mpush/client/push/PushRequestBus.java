@@ -32,6 +32,8 @@ import java.util.concurrent.*;
 /**
  * Created by ohun on 2015/12/30.
  *
+ * 维持异步推送任务
+ *
  * @author ohun@live.cn
  */
 public class PushRequestBus extends BaseService {

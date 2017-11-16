@@ -362,7 +362,7 @@ public interface CC {
 //            int tablelen = cfg.getInt("tablelen");
 //        }
 
-        interface druid{
+        interface druid {
             Config cfg = mp.cfg.getObject("druid").toConfig();
             String driverClassName = cfg.getString("driverClassName");
             String url = cfg.getString("url");

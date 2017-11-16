@@ -29,11 +29,14 @@ import java.util.concurrent.FutureTask;
  * Created by ohun on 2015/12/30.
  *
  * @author ohun@live.cn
+ *
+ * 推送功能
  */
 public interface PushSender extends Service {
 
     /**
      * 创建PushSender实例
+     * 创建服务
      *
      * @return PushSender
      */

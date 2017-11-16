@@ -33,6 +33,7 @@ public abstract class BaseService implements Service {
 
     @Override
     public void init() {
+        //调用AllocServer的init()方法
     }
 
     @Override

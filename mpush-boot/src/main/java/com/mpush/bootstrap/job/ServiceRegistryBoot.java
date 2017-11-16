@@ -26,6 +26,8 @@ import com.mpush.tools.log.Logs;
  * Created by yxx on 2016/5/14.
  *
  * @author ohun@live.cn
+ *
+ * 启动服务注册与发现模块
  */
 public final class ServiceRegistryBoot extends BootJob {
 

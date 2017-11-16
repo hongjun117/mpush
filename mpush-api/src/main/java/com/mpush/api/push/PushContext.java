@@ -26,6 +26,7 @@ import java.util.Set;
 import java.util.UUID;
 
 /**
+ * 推送实体
  * Created by ohun on 16/9/8.
  *
  * @author ohun@live.cn (夜色)

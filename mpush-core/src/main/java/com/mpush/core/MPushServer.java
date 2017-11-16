@@ -69,6 +69,7 @@ public final class MPushServer implements MPushContext {
 
 
     public MPushServer() {
+        //net的一些配置，比如
         connServerNode = ServerNodes.cs();
         gatewayServerNode = ServerNodes.gs();
         websocketServerNode = ServerNodes.ws();

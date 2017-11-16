@@ -44,6 +44,8 @@ import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketSe
  * Created by ohun on 2016/12/16.
  *
  * @author ohun@live.cn (夜色)
+ *
+ * websocket接入服务
  */
 public final class WebsocketServer extends NettyTCPServer {
 
