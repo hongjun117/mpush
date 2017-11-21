@@ -32,6 +32,9 @@ import static com.mpush.api.protocol.Command.HANDSHAKE;
  * Created by ohun on 2015/12/27.
  *
  * @author ohun@live.cn
+ *
+ *
+ * 握手成功消息实体
  */
 public final class HandshakeOkMessage extends ByteBufMessage {
     public byte[] serverKey;

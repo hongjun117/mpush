@@ -41,7 +41,7 @@ public final class ReusableSessionManager {
         cacheManager.set(key, ReusableSession.encode(session.context), expiredTime);
         return true;
     }
-
+    //获取可复用session
     public ReusableSession querySession(String sessionId) {
         String key = CacheKeys.getSessionKey(sessionId);
         String value = cacheManager.get(key, String.class);
@@ -49,6 +49,7 @@ public final class ReusableSessionManager {
         return ReusableSession.decode(value);
     }
 
+    //生成可复用session
     public ReusableSession genSession(SessionContext context) {
         long now = System.currentTimeMillis();
         ReusableSession session = new ReusableSession();

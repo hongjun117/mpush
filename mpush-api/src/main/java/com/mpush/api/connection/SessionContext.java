@@ -35,7 +35,7 @@ public final class SessionContext {
     public String userId;
     public String tags;
     public int heartbeat = 10000;// 10s
-    public Cipher cipher;
+    public Cipher cipher;//秘钥
     private byte clientType;
 
     public void changeCipher(Cipher cipher) {

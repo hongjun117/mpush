@@ -74,6 +74,7 @@ public final class RouterCenter extends BaseService {
      * @return
      */
     public boolean register(String userId, Connection connection) {
+        System.out.println("-------------注册用户在这里----------"+userId);
         ClientLocation location = ClientLocation
                 .from(connection)
                 .setHost(mPushServer.getGatewayServerNode().getHost())

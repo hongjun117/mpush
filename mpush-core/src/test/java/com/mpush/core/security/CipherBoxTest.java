@@ -46,4 +46,11 @@ public class CipherBoxTest {
         }
 
     }
+
+    @Test
+    public void testReusableSession(){
+
+    }
+
+
 }

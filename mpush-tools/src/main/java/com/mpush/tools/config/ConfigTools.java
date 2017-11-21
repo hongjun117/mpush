@@ -32,6 +32,7 @@ public final class ConfigTools {
     private ConfigTools() {
     }
 
+    //返回数组中最大的值
     public static int getHeartbeat(int min, int max) {
         return Math.max(
                 CC.mp.core.min_heartbeat,

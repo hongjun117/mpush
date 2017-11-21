@@ -71,6 +71,7 @@ public final class BindUserHandler extends BaseMessageHandler<BindUserMessage> {
         }
     }
 
+    //绑定用户
     private void bind(BindUserMessage message) {
         if (Strings.isNullOrEmpty(message.userId)) {
             ErrorMessage.from(message).setReason("invalid param").close();

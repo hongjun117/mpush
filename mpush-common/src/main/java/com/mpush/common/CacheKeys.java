@@ -38,6 +38,7 @@ public final class CacheKeys {
     }
 
     public static String getSessionKey(String sessionId) {
+        System.out.println("---获取session------"+SESSION_PREFIX + sessionId);
         return SESSION_PREFIX + sessionId;
     }
 

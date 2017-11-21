@@ -26,6 +26,8 @@ import com.mpush.common.security.AesCipher;
  * Created by ohun on 2015/12/25.
  *
  * @author ohun@live.cn
+ *
+ * 生成可复用session, 用于快速重连
  */
 public final class ReusableSession {
     public String sessionId;
@@ -41,7 +43,7 @@ public final class ReusableSession {
         sb.append(context.cipher);
         return sb.toString();
     }
-
+    //解密session
     public static ReusableSession decode(String value) {
         String[] array = value.split(",");
         if (array.length != 6) return null;

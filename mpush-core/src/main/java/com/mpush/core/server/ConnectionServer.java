@@ -72,6 +72,7 @@ public final class ConnectionServer extends NettyTCPServer {
         this.channelHandler = new ServerChannelHandler(true, connectionManager, messageDispatcher);
     }
 
+    //TODO 各种请求
     @Override
     public void init() {
         super.init();

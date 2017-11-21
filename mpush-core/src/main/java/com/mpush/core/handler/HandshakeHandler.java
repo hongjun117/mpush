@@ -39,6 +39,8 @@ import com.mpush.tools.log.Logs;
  * Created by ohun on 2015/12/24.
  *
  * @author ohun@live.cn
+ *         <p>
+ *         为了生成会话密钥，同时会把生成好的密钥存储到redis，并把key返回给客户端，为快速重连使用
  */
 public final class HandshakeHandler extends BaseMessageHandler<HandshakeMessage> {
 
@@ -62,6 +64,10 @@ public final class HandshakeHandler extends BaseMessageHandler<HandshakeMessage>
         }
     }
 
+    /**
+     * 客户端公钥私钥，及握手，并保持client信息到redis中
+     * 首次握手,需要交互秘钥
+     */
     private void doSecurity(HandshakeMessage message) {
         byte[] iv = message.iv;//AES密钥向量16位
         byte[] clientKey = message.clientKey;//客户端随机数16位

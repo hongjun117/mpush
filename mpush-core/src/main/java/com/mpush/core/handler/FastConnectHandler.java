@@ -36,6 +36,10 @@ import com.mpush.tools.log.Logs;
  * Created by ohun on 2015/12/25.
  *
  * @author ohun@live.cn
+ *
+ * 基于Handshake生成的sessionId来配合使用的，目的是为了减少RSA加密的使用次数，特别是网络较差的情况，
+ * 毕竟RSA加密想对还是比较耗时的，客户端只需把sessionId传给服务端，其就能从redis中取出上次会话信息，
+ * 恢复到上次握手成功之后的会话状态，这个过程不需要任何加密和密钥交换，相对会比较快速。
  */
 public final class FastConnectHandler extends BaseMessageHandler<FastConnectMessage> {
     private final ReusableSessionManager reusableSessionManager;

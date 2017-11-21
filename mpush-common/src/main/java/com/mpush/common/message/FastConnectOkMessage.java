@@ -30,6 +30,7 @@ import static com.mpush.api.protocol.Command.FAST_CONNECT;
  * Created by ohun on 2015/12/28.
  *
  * @author ohun@live.cn
+ * 快速重连信息
  */
 public final class FastConnectOkMessage extends ByteBufMessage {
     public int heartbeat;
