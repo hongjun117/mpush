@@ -54,11 +54,12 @@ public class PushClientTestMain {
 
             PushContext context = PushContext.build(msg)
                     .setAckModel(AckModel.AUTO_ACK)
-                    .setUserId("user-" + i)
+//                    .setUserId("user-" + i)
                     .setBroadcast(false)
-                    //.setTags(Sets.newHashSet("test"))
+                    //TODO 通过tag进行推送
+                    .setTags(Sets.newHashSet("test"))
                     //.setCondition("tags&&tags.indexOf('test')!=-1")
-                    //.setUserIds(Arrays.asList("user-0", "user-1"))
+                    .setUserIds(Arrays.asList("user-0", "user-1"))
                     .setTimeout(2000)
                     .setCallback(new PushCallback() {
                         @Override

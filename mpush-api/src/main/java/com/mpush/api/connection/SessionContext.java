@@ -67,6 +67,14 @@ public final class SessionContext {
         return this;
     }
 
+    //TODO start
+    public SessionContext setTags(String tags){
+        this.tags=tags;
+        return this;
+    }
+    //TODO end
+
+
     public void setHeartbeat(int heartbeat) {
         this.heartbeat = heartbeat;
     }

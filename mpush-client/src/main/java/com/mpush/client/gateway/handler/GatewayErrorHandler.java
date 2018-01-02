@@ -62,6 +62,7 @@ public final class GatewayErrorHandler extends BaseMessageHandler<ErrorMessage> 
 
             Logs.PUSH.warn("receive an error gateway response, message={}", message);
             if (message.code == OFFLINE.errorCode) {//用户离线
+                System.out.println("--------------");
                 request.onOffline();
             } else if (message.code == PUSH_CLIENT_FAILURE.errorCode) {//下发到客户端失败
                 request.onFailure();

@@ -94,6 +94,10 @@ public final class HandshakeHandler extends BaseMessageHandler<HandshakeMessage>
         //3.更换会话密钥RSA=>AES(clientKey)
         context.changeCipher(new AesCipher(clientKey, iv));
 
+        //TODO start
+        context.setTags("1");
+        //TODO end
+
         //4.生成可复用session, 用于快速重连
         ReusableSession session = reusableSessionManager.genSession(context);
 
