@@ -167,6 +167,7 @@ public final class PushRequest extends FutureTask<PushResult> {
         return this;
     }
 
+    //开始推送
     public FutureTask<PushResult> broadcast() {
         timeLine.begin();
 
@@ -259,6 +260,7 @@ public final class PushRequest extends FutureTask<PushResult> {
         this.mPushClient = mPushClient;
     }
 
+    //推送给客户端的实体封装
     public static PushRequest build(MPushClient mPushClient, PushContext ctx) {
         byte[] content = ctx.getContext();
         PushMsg msg = ctx.getPushMsg();

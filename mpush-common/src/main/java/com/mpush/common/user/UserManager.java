@@ -36,6 +36,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -84,9 +86,10 @@ public final class UserManager {
 
     public void addToOnlineList(String userId) {
         cacheManager.zAdd(onlineUserListKey, userId);
-        System.out.println("用户上线在这里" + userId);
+        System.out.println("用户上线在这里" + userId+"---------当前时间-------------"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         MysqlConnecter mc = new MysqlConnecter();
         mc.update("update m_user set is_online=2 where device_id=\"" + userId + "\"");
+
 
         //上线后，修改离线时间的值为0
 
@@ -106,7 +109,7 @@ public final class UserManager {
 
     public void remFormOnlineList(String userId) {
         cacheManager.zRem(onlineUserListKey, userId);
-        System.out.println("用户掉线在这里" + userId);
+        System.out.println("用户掉线在这里" + userId+"---------当前时间-------------"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         MysqlConnecter mc = new MysqlConnecter();
         mc.update("update m_user set is_online=1 where device_id=\"" + userId + "\"");
 
@@ -124,6 +127,10 @@ public final class UserManager {
             }
 
             LOGGER.info("user offline {}", userId);
+
+            kickUser(userId);
+            System.out.println("-----踢掉用户--------" + userId);
+
         }
     }
 

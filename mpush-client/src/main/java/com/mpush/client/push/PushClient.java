@@ -36,6 +36,10 @@ import com.mpush.common.router.RemoteRouter;
 import java.util.Set;
 import java.util.concurrent.FutureTask;
 
+/**
+ * 是mpush-api中的PushSender文件实现类
+ */
+
 public final class PushClient extends BaseService implements PushSender {
 
     private MPushClient mPushClient;
@@ -70,11 +74,14 @@ public final class PushClient extends BaseService implements PushSender {
 
     @Override
     public FutureTask<PushResult> send(PushContext ctx) {
+        //群推
         if (ctx.isBroadcast()) {
             return send0(ctx.setUserId(null));
         } else if (ctx.getUserId() != null) {
+            //单推
             return send0(ctx);
         } else if (ctx.getUserIds() != null) {
+            //组推
             FutureTask<PushResult> task = null;
             for (String userId : ctx.getUserIds()) {
                 task = send0(ctx.setUserId(userId));

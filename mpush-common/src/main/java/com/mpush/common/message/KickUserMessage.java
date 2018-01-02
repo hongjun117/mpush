@@ -32,7 +32,7 @@ import static com.mpush.api.protocol.Command.PUSH;
 
 /**
  * Created by ohun on 2015/12/29.
- *
+ *要踢的用户信息
  * @author ohun@live.cn
  */
 public class KickUserMessage extends ByteBufMessage {

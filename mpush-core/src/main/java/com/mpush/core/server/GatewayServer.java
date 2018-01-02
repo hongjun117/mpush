@@ -52,6 +52,8 @@ import static com.mpush.tools.thread.ThreadNames.T_TRAFFIC_SHAPING;
  * Created by ohun on 2015/12/30.
  *
  * @author ohun@live.cn
+ *
+ * 负责接收GatewayClient发送过来的消息，然后到LocalRouterManager查找用户的Connection，然后把消息交由其下发。
  */
 public final class GatewayServer extends NettyTCPServer {
 

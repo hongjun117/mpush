@@ -30,6 +30,9 @@ import java.util.concurrent.FutureTask;
  *
  * @author ohun@live.cn
  *
+ *是消息推送的入口，它的实现在mpush-client模块属于服务端SDK，主要包含有GatewayClient, RemoteRouterManager; RemoteRouterManager
+ * 用于定位用户在哪台机器，有没有在线等，而GatewayClient用于把要发送的的业务消息发给用户TCP连接所在的机器。
+ *
  * 推送功能
  */
 public interface PushSender extends Service {

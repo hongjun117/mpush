@@ -36,6 +36,8 @@ import io.netty.util.Timeout;
 import io.netty.util.TimerTask;
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
@@ -169,25 +171,9 @@ public final class ServerConnectionManager implements ConnectionManager {
             }
 
             if (connection.isReadTimeout()) {
-//                System.out.println("用户心跳超时在这里："+connection);
-//                String userId = connection.getSessionContext().userId;
-//                System.out.println("用户心跳超时的设备号："+userId);
-//                MysqlConnecter mc = new MysqlConnecter();
-//                mc.update("update m_user set is_online=1 where device_id=\""+userId+"\"");
-//
-//                // 用户离线，确认离线时间
-//                String user_id = mc.selectOne("select user_id from m_user where device_id=\""+userId+"\"");
-//                System.out.println("-----用户超时后，查询出的用户id--------"+user_id);
-//                if(StringUtils.isNotBlank(user_id)){
-//                    String result = mc.selectOne("select user_last_time_id from m_user_online_time where user_id=\""+user_id+"\"");
-//                    DateUtils dateUtils = new DateUtils();
-//                    String now = dateUtils.getNow(dateUtils.FORMAT_LONG);
-//                    if (result!=null){
-//                        mc.update("update m_user_online_time set create_time=\""+now+"\" where user_last_time_id=\""+result+"\"");
-//                    }else {
-//                        mc.update("insert into m_user_online_time(user_id,create_time) values(\""+user_id+"\",\""+now+"\")");
-//                    }
-//                }
+                System.out.println("用户心跳超时在这里："+connection);
+                String userId = connection.getSessionContext().userId;
+                System.out.println("用户心跳超时的设备号："+userId+"---------当前时间-------------"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 
                 if (++timeoutTimes > CC.mp.core.max_hb_timeout_times) {
                     connection.close();

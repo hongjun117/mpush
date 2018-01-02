@@ -25,6 +25,7 @@ import com.mpush.api.spi.core.ServerEventListenerFactory;
 import com.mpush.bootstrap.job.*;
 import com.mpush.core.MPushServer;
 import com.mpush.tools.config.CC;
+import com.mpush.tools.log.Logs;
 
 import static com.mpush.tools.config.CC.mp.net.*;
 
@@ -49,6 +50,7 @@ public final class ServerLauncher {
         }
 
         if (serverEventListener == null) {
+            Logs.Console.info("serverEventListener........");
             serverEventListener = ServerEventListenerFactory.create();
         }
 
@@ -67,9 +69,11 @@ public final class ServerLauncher {
                 .setNext(() -> new HttpProxyBoot(mPushServer), CC.mp.http.proxy_enabled)//10.启动http代理服务，dns解析服务
                 .setNext(new MonitorBoot(mPushServer))//11.启动监控服务
                 .end();
-    }
 
+        Logs.Console.info("---------初始化模块，启动各种服务---------------");
+    }
     public void start() {
+        Logs.Console.info("------launcher.start---调用start方法---------------");
         chain.start();
     }
 

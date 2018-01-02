@@ -20,6 +20,10 @@ public class FutureListener extends CompletableFuture<Boolean> implements Listen
 
     @Override
     public void onSuccess(Object... args) {
+        /**
+         * isDone()来检查计算是否完成
+         * complete()就能解锁所有等待Future的客户端
+         */
         if (isDone()) return;// 防止Listener被重复执行
         complete(started.get());
         if (listener != null) listener.onSuccess(args);

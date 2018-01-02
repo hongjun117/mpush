@@ -35,6 +35,7 @@ import java.util.function.Supplier;
 public final class BootChain {
     private final BootJob boot = new BootJob() {
         {
+            Logs.Console.info(" new BootJob.....");
             ServerEventListenerFactory.create();// 初始化服务监听
         }
 

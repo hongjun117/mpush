@@ -35,6 +35,9 @@ import java.util.concurrent.locks.LockSupport;
 
 import static com.mpush.api.srd.ServiceNames.ATTR_PUBLIC_IP;
 
+/**
+ * 模拟一个客户端
+ */
 public class ConnClientTestMain {
 
     public static void main(String[] args) throws Exception {

@@ -37,6 +37,7 @@ import com.mpush.netty.http.HttpClient;
 import com.mpush.netty.http.NettyHttpClient;
 import com.mpush.tools.event.EventBus;
 import com.mpush.monitor.service.ThreadPoolManager;
+import com.mpush.tools.log.Logs;
 
 import static com.mpush.tools.config.CC.mp.net.tcpGateway;
 
@@ -69,6 +70,7 @@ public final class MPushServer implements MPushContext {
 
 
     public MPushServer() {
+        Logs.Console.info("------MPushServer--------");
         //net的一些配置，比如
         connServerNode = ServerNodes.cs();
         gatewayServerNode = ServerNodes.gs();

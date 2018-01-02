@@ -54,6 +54,8 @@ import static com.mpush.tools.thread.ThreadNames.T_TRAFFIC_SHAPING;
  * Created by ohun on 2015/12/30.
  *
  * @author ohun@live.cn (夜色)
+ *
+ * 负责维持所有连接到当前机器的客户端连接，所以消息最终还是尤其下发
  */
 public final class ConnectionServer extends NettyTCPServer {
 
@@ -72,7 +74,7 @@ public final class ConnectionServer extends NettyTCPServer {
         this.channelHandler = new ServerChannelHandler(true, connectionManager, messageDispatcher);
     }
 
-    //TODO 各种请求
+    //各种请求
     @Override
     public void init() {
         super.init();
